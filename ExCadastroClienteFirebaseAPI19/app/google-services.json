@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "538908081923",
+    "firebase_url": "https://excadastrocliente.firebaseio.com",
+    "project_id": "excadastrocliente",
+    "storage_bucket": "excadastrocliente.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538908081923:android:757eb7cc268cc1ed",
+        "android_client_info": {
+          "package_name": "thiagocury.eti.br.excadastroclientefirebaseapi19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538908081923-dq7llketmguc91v9pk4bac14f4s327de.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPj8whiNQ0pCn6KFdfuwn02cssRyizuDk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

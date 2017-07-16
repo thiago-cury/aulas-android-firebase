@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ExCadastroClienteFirebaseAPI19</string>
+
+    <!-- Variáveis -->
+    <string name="et_nome">Nome</string>
+    <string name="et_rg">RG</string>
+    <string name="et_renda">Renda</string>
+    <string name="btn_cadastrar">Cadastrar</string>
+
+    <!-- Alert -->
+    <string name="alert_titulo">Confirmação</string>
+    <string name="alert_msg">Você tem certeza que deseja excluir?</string>
+    <string name="alert_botao_sim">Sim</string>
+    <string name="alert_botao_nao">Não</string>
+
+    <string name="alert_alterar_msg">Você tem certeza que deseja alterar?</string>
+
+    <!-- Toast -->
+    <string name="toast_sucesso_remocao">Cliente removido com sucesso!</string>
+    <string name="toast_sucesso_adicionar">Cliente cadastrado com sucesso!</string>
+    <string name="toast_sucesso_alterar">Cliente alterado com sucesso!</string>
+    <string name="toast_erro">Preencha os dados corretamente!</string>
+
+</resources>
