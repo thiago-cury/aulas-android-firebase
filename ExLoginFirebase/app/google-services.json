@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "491070167147",
+    "firebase_url": "https://exloginfirebase-1e0c7.firebaseio.com",
+    "project_id": "exloginfirebase-1e0c7",
+    "storage_bucket": "exloginfirebase-1e0c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491070167147:android:8d83d4d69260a2fc",
+        "android_client_info": {
+          "package_name": "thiagocury.eti.br.exloginfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491070167147-5lcoclqitlkn90pg25brmesfqa79pov9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwUvLklztuaU-JRhRehSWoPVtS5AD0OLg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
