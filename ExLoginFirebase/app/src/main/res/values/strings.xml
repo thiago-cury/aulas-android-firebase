@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ExLoginFirebase</string>
     <string name="et_login">Login</string>
-    <string name="et_senha">Senha</string>
+    <string name="et_senha">Senha No mínimo 6 caracteres</string>
     <string name="btn_entrar">Entrar</string>
+    <string name="btn_criar_conta">Criar conta</string>
+    <string name="btn_esqueci_senha">Esqueci minha senha</string>
 </resources>

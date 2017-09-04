@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText etLogin;
     private EditText etSenha;
     private Button btnEntrar;
+    private Button btnCriarConta;
+    private Button btnEsqueciMinhaSenha;
     private ProgressBar progress;
 
     //Firebase Auth
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         etLogin = (EditText) findViewById(R.id.et_login);
         etSenha = (EditText) findViewById(R.id.et_senha);
         btnEntrar = (Button) findViewById(R.id.btn_entrar);
+        btnCriarConta = (Button) findViewById(R.id.btn_criar_conta);
+        btnEsqueciMinhaSenha = (Button) findViewById(R.id.btn_esqueci_senha);
         progress = (ProgressBar) findViewById(R.id.progress);
 
         progress.setVisibility(View.INVISIBLE);
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     //redirecionar para tela de abertura
 
                 }else{
+
                     //Usuário NÃO está logado
                     Toast.makeText(
                             getBaseContext(),
@@ -73,8 +78,56 @@ public class MainActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(!etLogin.getText().toString().isEmpty() &&
-                   !etSenha.getText().toString().isEmpty()){
+                        !etSenha.getText().toString().isEmpty()){
+
+                    //Iniciando progress
+                    progress.setVisibility(View.VISIBLE);
+
+                    Usuario u = new Usuario();
+                    u.setLogin(etLogin.getText().toString());
+                    u.setSenha(etSenha.getText().toString());
+
+                    Log.d("TAG","u: "+u.toString());
+
+                    //Verificar e autenticar usuário no Firebase
+                    mAuth.signInWithEmailAndPassword(u.getLogin(), u.getSenha())
+                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Log.d("TAG","task: "+task.isSuccessful());
+                                    if(!task.isSuccessful()){
+                                        Toast.makeText(
+                                                getBaseContext(),
+                                                "Usuário NÃO autenticado!",
+                                                Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(
+                                                getBaseContext(),
+                                                "Usuário autenticado com sucesso!",
+                                                Toast.LENGTH_LONG).show();
+
+                                        //redirecionar para tela de abertura
+                                    }
+                                    //Removendo progress
+                                    progress.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                }else{
+                    Toast.makeText(
+                            getBaseContext(),
+                            "Digite os dados para entrar no App",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btnCriarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!etLogin.getText().toString().isEmpty() &&
+                        !etSenha.getText().toString().isEmpty()){
 
                     //Iniciando progress
                     progress.setVisibility(View.VISIBLE);
@@ -111,7 +164,49 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(
                             getBaseContext(),
-                            "Digite os dados para entrar",
+                            "Digite os dados para criar a conta",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btnEsqueciMinhaSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                if(!etLogin.getText().toString().isEmpty()) {
+
+                    //Iniciando progress
+                    progress.setVisibility(View.VISIBLE);
+
+                    Usuario u = new Usuario();
+                    u.setLogin(etLogin.getText().toString());
+
+                    Log.d("TAG", "u: " + u.toString());
+
+                    auth.sendPasswordResetEmail(u.getLogin())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful()) {
+                                        Log.d("TAG", "Email para redefinição de senha enviado com sucesso.");
+
+                                        Toast.makeText(
+                                                getBaseContext(),
+                                                "Email para redefinição de senha enviado com sucesso",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                    //Removendo progress
+                                    progress.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                }else{
+                    Toast.makeText(
+                            getBaseContext(),
+                            "Digite o seu email/login pfv!",
                             Toast.LENGTH_LONG).show();
                 }
             }
