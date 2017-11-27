@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         c.setRG(Integer.parseInt(etRG.getText().toString()));
                         c.setRenda(Double.parseDouble(etRenda.getText().toString()));
 
-                        //Alterando através da chave(key) no firebase setando o novo valor
+                        //Alterando através da chave(key) no firebase setando o novo valor.
                         banco.child(c.getKey()).setValue(c);
 
                         Toast.makeText(
